@@ -1,12 +1,8 @@
 import { Box, Flex, Text, Link, Stack, Icon, Heading } from '@chakra-ui/react';
-import { FaGithub, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram, FaYoutube, FaTelegram } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { BiCopyright } from 'react-icons/bi';
  import { 
- ColorModeButton,
-  DarkMode,
-  LightMode,
-  useColorMode,
   useColorModeValue,
 } from "@/components/ui/color-mode"
 
@@ -17,7 +13,7 @@ const Footer = () => {
   const hoverColor = useColorModeValue('blue.500', 'blue.300');
 
   return (
-    <Box w={'100%'} as="footer" bg={bgColor} py={4} px={{ base: 5, md: 3 }} mt="9">
+    <Box w={'100%'} as="footer" bg={bgColor} py={2} px={{ base: 0, md: 10 }} mt="10">
       <Flex
         direction={{ base: 'column', md: 'row' }}
         maxW="full"
@@ -29,7 +25,7 @@ const Footer = () => {
         {/* Company Info */}
         <Box maxW="300px">
           <Heading as="h3" size="md" mb={4} color={headingColor}>
-            Your Company
+            Hafiz Adem
           </Heading>
           <Text color={textColor} mb={4}>
             Building amazing digital experiences that help businesses grow and succeed in the modern world.
@@ -46,6 +42,9 @@ const Footer = () => {
             </Link>
             <Link href="#" isExternal>
               <Icon as={FaInstagram} boxSize={5} _hover={{ color: hoverColor }} />
+            </Link>
+            <Link href="#" isExternal>
+              <Icon as={FaTelegram} boxSize={5} _hover={{ color: hoverColor }} />
             </Link>
           </Stack>
         </Box>
@@ -98,17 +97,17 @@ const Footer = () => {
         {/* Contact */}
         <Box>
           <Heading as="h3" size="md" mb={4} color={headingColor}>
-            Contact Us
+            Contact 
           </Heading>
           <Stack spacing={3}>
             <Flex align="center">
               <Icon as={MdEmail} mr={2} />
               <Link href="mailto:contact@yourcompany.com" color={textColor} _hover={{ color: hoverColor }}>
-                contact@yourcompany.com
+                hafizadem71@gmail.com
               </Link>
             </Flex>
-            <Text color={textColor}>123 Business Ave</Text>
-            <Text color={textColor}>San Francisco, CA 94107</Text>
+            <Text color={textColor}>@Nobody71</Text>
+            <Text color={textColor}>Ethiopia, Adiss Abeba</Text>
           </Stack>
         </Box>
       </Flex>
@@ -123,11 +122,11 @@ const Footer = () => {
 
       <Flex
         direction={{ base: 'column-reverse', md: 'row' }}
-        maxW="1200px"
+        maxW="full"
         mx="auto"
         justify="space-between"
         align="center"
-        gap={4}
+        gap={10}
       >
         <Flex align="center" color={textColor}>
           <Icon as={BiCopyright} mr={1} />
@@ -136,7 +135,7 @@ const Footer = () => {
           </Text>
         </Flex>
 
-        <Stack direction="row" spacing={6}>
+        <Stack direction="row" spacing={1}>
           <Link href="#" fontSize="sm" color={textColor} _hover={{ color: hoverColor }}>
             Privacy Policy
           </Link>

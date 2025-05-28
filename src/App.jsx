@@ -1,4 +1,6 @@
 // src/App.jsx
+import {ChakraProvider} from '@chakra-ui/react';
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Box, Sticky, VStack } from "@chakra-ui/react";
 // import { Provider} from "@chakra-ui/react"
@@ -23,8 +25,9 @@ function App() {
   return (
    
         <VStack   h={'100vh'}  align="center">
-            <Header  />
 
+        <Header />
+     
           <Box w={'95%'} spacing={6} p={8} >
           <StickyNav></StickyNav>
 
