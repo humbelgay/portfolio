@@ -1,4 +1,4 @@
-import { Box, Card, Button,Flex , Image, Text, VStack, HStack, IconButton } from '@chakra-ui/react';
+import { Heading, Box, Card, Button,Flex , Image, Text, VStack, HStack, IconButton } from '@chakra-ui/react';
 // import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useState } from "react";
 import { useBreakpointValue } from "@chakra-ui/react";
@@ -7,7 +7,9 @@ import pac  from '../assets/IMG_0533.jpg'
 import movie  from '../assets/movie.jpg'
 import hero  from '../assets/IMG-123.jpg'
 
+import { motion } from "framer-motion";
 
+const MotionBox = motion(Box);
 
 
 // import { FaGithub, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa';
@@ -241,3 +243,4 @@ export const Demo = () => {
     </Box>
   )
 }
+

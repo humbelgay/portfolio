@@ -7,7 +7,7 @@ const Blog = () => {
   return (
     <Box   w={{ base: "100%", md: "100%" }} px={{ base: 4, md: 0 }} mx="auto">
      <Text as="h1" fontSize={{ base: "3xl", md: "5xl" }} fontWeight="bold" mb={8} textAlign="center">
-            About
+            Blog
           </Text>
     <Stack
       padding={{ base: 0, md: 10 }}
@@ -15,15 +15,8 @@ const Blog = () => {
       align="center"
       justify={'center'}
       spacing={{ base: 6, md: 12 }}
-
-    
     >
-       
-      <Box flex={.5} gap="8">
-               
-
-      
-       
+      <Box flex={.5} gap="8"> 
         <For each={["subtle", "solid", "outline", "plain"]}>
           {(variant) => (
             <Timeline.Root variant={variant} key={variant}>
