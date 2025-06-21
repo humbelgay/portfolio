@@ -14,8 +14,6 @@ const  Header=()=> {
    // Updated colors to match the recommended dark/light palette
   const bg = useColorModeValue("#FFFFFF", "#121212");       // Light: white, Dark: near-black
   const color = useColorModeValue("#333333", "#E0E0E0");    // Light: dark gray, Dark: soft white
-  const accent = useColorModeValue("#6200EE", "#BB86FC");  // Light: purple, Dark: vibrant purple
-  const cardBg = useColorModeValue("#F5F5F5", "#1E1E1E");  // Light: light gray, Dark: dark gray
   const hoverColor = useColorModeValue('blue.500', 'blue.300');
 
   return (
@@ -38,14 +36,7 @@ const  Header=()=> {
         <IconButton  bg={{ color: bg }}  _hover={{ color: hoverColor }}>< LuTwitter/></IconButton>
         <IconButton bg={{ color: bg }}  _hover={{ color: hoverColor }}><LuLinkedin /></IconButton>
 
-        <IconButton
-      aria-label="Toggle color mode"
-      icon= {Icon === 'Light'? <FaMoon /> : <FaSun />}
-      onClick={toggleColorMode}
-      variant="ghost"
-      fontSize="20px"
-      colorScheme="gray" // Optional: adds hover/focus styles
-    />
+   
      
       </Flex>
     </Flex>

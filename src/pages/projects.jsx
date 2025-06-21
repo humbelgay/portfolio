@@ -83,9 +83,6 @@ export const Projects = () => {
         </Blockquote.Content>
       </Blockquote.Root>
     </Stack>
-
-
-
       </Box>
 
     </Stack>
