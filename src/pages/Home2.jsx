@@ -6,15 +6,11 @@ import { motion } from "framer-motion";
 const MotionBox = motion(Box);
 
  const layers = [
-  "01_sky_gradient.png",
-  "02_sun.png",
-  "03_farthest_mountains.png",
-  "Artboard 1.png",
-  "05_middle_mountains.png",
-  "06_distant_tree_line.png",
-  "07_left_foreground_trees.png",
-  "08_right_foreground_trees.png",
-  "09_water_and_reflections.png",
+  "doodle1.png",
+  "doodle2.png",
+  "doodle3.png",
+  // "doodle4.png",
+  "doodle5.png"
 ];
 
 const layerSettings = layers.map((src, index) => ({
@@ -26,25 +22,28 @@ const layerSettings = layers.map((src, index) => ({
 function Home2() {
   return (
     <Box
-      w="100vw"
+      w="100%"
       h="100vh"
       overflow="hidden"
       position="relative"
-      bg="black"
+      // bg="black"
     >
       {layerSettings.map((layer, i) => (
         <MotionBox
           key={i}
           position="absolute"
           top={0}
+          
           left={0}
           w="100%"
           h="100%"
           zIndex={layer.zIndex}
           style={{
             backgroundImage: `url(${layer.src})`,
-            backgroundSize: "cover",
+            //  backgroundSize: "cover",
             backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+     
           }}
           animate={{
             x: [0, -layer.speed * 100, 0],
@@ -52,7 +51,7 @@ function Home2() {
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 20 - i * 1.5,
+            duration: 15 - i * 2,
             ease: "linear",
           }}
         />

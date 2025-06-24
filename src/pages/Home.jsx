@@ -1,245 +1,207 @@
-import { Heading, Box, Card, Button,Flex , Image, Text, VStack, HStack, IconButton } from '@chakra-ui/react';
+import {  Box, Card, Button,Flex , Image, Text, VStack, HStack, IconButton } from '@chakra-ui/react';
 // import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { useState } from "react";
+import { useState, useMemo  } from "react";
+import { useColorMode,useColorModeValue } from "@/components/ui/color-mode";
 import { useBreakpointValue } from "@chakra-ui/react";
-import speedTest  from '../assets/speedType.jpg'
-import pac  from '../assets/IMG_0533.jpg'
-import movie  from '../assets/movie.jpg'
-import hero  from '../assets/IMG-123.jpg'
+import speedTest  from '@/assets/speedType.jpg'
+import pac  from '@/assets/IMG_0533.jpg'
+import movie  from '@/assets/movie.jpg'
+// import hero  from '../assets/IMG-123.jpg'
 
 import { motion } from "framer-motion";
 
+
+
+// import Pngs  from "../../public/layers"
+
+
+ const layers = [
+  "doodle1",
+  "doodle2",
+   "doodle4",
+  "doodle5"
+];
+
+
+
 const MotionBox = motion(Box);
 
-
-// import { FaGithub, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa';
-
 export default function  Home ()   {
+  const { colorMode } = useColorMode();
   const [isHovering, setIsHovering] = useState(null);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
+  const layerSettings = useMemo(() => {
+    return layers.map((base, index) => ({
+      src: `/layers/${base}-${colorMode}.png`,
+      zIndex: index,
+      speed: 0.1 + index * 0.05,
+    }));
+  }, [colorMode]);
   return (
-    <Box  >
-  
-
- <Box
-      h={isMobile ? "auto" : "50vh"}
-      position="relative"
-      overflow="hidden"
-      display="flex"
-      marginBottom={40}
-      flexDirection={isMobile ? "column" : "row"}
-      alignItems={isMobile ? "flex-start" : "stretch"}
-    >
-      {/* Background Image */}
- 
-      {/* Overlay */}
- 
-      {/* Center Image for Desktop */}
-
-
-      {/* Center Image for Mobile */}
-      {/* {isMobile && (
-        <Box w="100%" display="flex" justifyContent="center" >
-          <Image
-            src="https://avatars.githubusercontent.com/u/1?v=4"
-            alt="Profile"
-            boxSize="120px"
-            borderRadius="full"
-            zIndex={3}
-            transition="transform 0.5s ease"
-            _hover={{
-              transform: "scale(1.1)",
-            }}
-            boxShadow="0 0 0 3px white"
-          />
-        </Box>
-      )} */}
-
-      {/* Left Side - Designer */}
+    <VStack >
       <Box
-        w={isMobile ? "100%" : isHovering === "left" ? "100vw" : "50vw"}
-        h={isMobile ? "auto" : "100%"}
-        bg="transparent"
-        position="relative"
-        zIndex={isHovering === "left" ? 2 : 1}
-        transition="all 0.9s ease-in-out"
-        onMouseEnter={!isMobile ? () => setIsHovering("left") : undefined}
-        onMouseLeave={!isMobile ? () => setIsHovering(null) : undefined}
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        // color="black"
-        cursor="pointer"
-        opacity={isHovering === "right" && !isMobile ? 0.5 : 1}
-        py={isMobile ? 6 : 0}
-      >
-        <VStack  spacing={4}>
-          <Text fontSize="2xl"  fontWeight="bold">
-            Designer
-          </Text>
-          <Text p={5} maxW={'400px'}  fontWeight="medium"  >My portfolio blends bold design and expressive illustration, showcasing branding, digital art, and typography. Clean, dynamic, and thoughtfully crafted, each piece reflects my creative vision. Let’s collaborate—explore and connect. </Text>
- 
-        </VStack>
-      </Box>
-     <Box
-     
-         display={isMobile ? "none" : "flex"}
-         justifyContent={'center'}
-         objectFit="cover"
          w="100%"
-         h="100%"
-        url={hero}
-
-        zIndex={10}
-        transition="all 0.9s ease-in-out"
-        opacity={isHovering ? 1 : .5}
-      >
-            <Image
-            src={hero}
+         h="80Vh"
+         overflow="hidden"
+         position="relative"
+        //  mt={-10}
+        //  boxSizing={'border-box'}
+       >
+         {layerSettings.map((layer, i) => (
+           <MotionBox
+             key={i}
+             position="absolute"
+             top={0}
              
+             left={0}
+             w="100%"
+             h="100%"
+             zIndex={layer.zIndex}
+             style={{
+               backgroundImage: `url(${layer.src})`,
+                backgroundSize: "contain",
+               backgroundPosition: "center",
+               backgroundRepeat: "no-repeat",
+        
+             }}
+             animate={{
+               x: [0, -layer.speed * 100, 0],
+             }}
+             transition={{
+               repeat: Infinity,
+               repeatType: "loop",
+               duration: 10 - i * 2,
+               ease: "linear",
+             }}
+           />
+         ))}
 
-             
+         
+       </Box>
+         <Demo></Demo>
 
-  
-          />
-
-      </Box>
-
-      {/* Right Side - Developer */}
-      <Box
-        w={isMobile ? "100%" : isHovering === "right" ? "100vw" : "50vw"}
-        h={isMobile ? "auto" : "100%"}
-        bg="transparent"
-        position="relative"
-        zIndex={isHovering === "right" ? 2 : 1}
-        transition="all 0.9s ease-in-out"
-        onMouseEnter={!isMobile ? () => setIsHovering("right") : undefined}
-        onMouseLeave={!isMobile ? () => setIsHovering(null) : undefined}
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        // color="black"
-        cursor="pointer"
-        opacity={isHovering === "left" && !isMobile ? 0.5 : 1}
-        py={isMobile ? 6 : 0}
-      >
-     
-        <VStack  spacing={4}>
-          <Text fontSize="2xl"  fontWeight="bold">
-            Developer
-          </Text>
-          <Text p={5} maxW={'400px'}  fontWeight="medium"  >My portfolio blends bold design and expressive illustration, showcasing branding, digital art, and typography. Clean, dynamic, and thoughtfully crafted, each piece reflects my creative vision. Let’s collaborate—explore and connect. </Text>
- 
-        </VStack>
-      </Box>
-
-      {/* Center Image for Desktop */}
-      {/* {!isMobile && (
-        <Image
-          src="https://avatars.githubusercontent.com/u/1?v=4"
-          alt="Profile"
-          position="absolute"
-          top="20%"
-          left="50%"
-          transform="translate(-50%, -50%)"
-          boxSize="150px"
-          borderRadius="full"
-          zIndex={3}
-          transition="transform 0.5s ease"
-          _hover={{
-            transform: "translate(-50%, -50%) scale(1.1)",
-          }}
-          boxShadow="0 0 0 3px white"
-        />
-      )} */}
-      
-    </Box>
-
-
-    
-<Demo />
-</Box>
+       </VStack>
   );
 }
 
-   
-export const Demo = () => {
+const ProjectCard = ({ project, align = "left" }) => {
+  const isLeft = align === "left"
+  const bg = useColorModeValue("#f0f0f0", "#2a2a2a")
+  const textColor = useColorModeValue("#1B1B1B", "#eef8ce")
+
   return (
-    <Box  >
-      <Text as="h1" fontSize="2xl" fontWeight="bold" mb={8} textAlign="center">
+    <MotionBox
+      w={useBreakpointValue({ base: "100%", md: "48%" })}
+      alignSelf={isLeft ? "flex-start" : "flex-end"}
+      bg={bg}
+      color={textColor}
+      p={6}
+      mb={20}
+      borderRadius="xl"
+      shadow="lg"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <Image src={project.image} objectFit="cover" w="100%" h="200px" borderRadius="lg" />
+      <VStack align="start" spacing={4} mt={2}>
+        <Text fontSize="2xl" fontWeight="bold" fontFamily="devil breeze">
+          {project.title}
+        </Text>
+        <Text>{project.description}</Text>
+        <Button>See Project</Button>
+      </VStack>
+    </MotionBox>
+  )
+}
+
+export const Demo = () => {
+  const bg = useColorModeValue("#f9f9f9", "#1B1B1B")
+  const color = useColorModeValue("#1B1B1B", "#eef8ce")
+
+  const projects = [
+    {
+      title: "Typing Speed Test",
+      description: "Test your typing speed and accuracy with various text options...",
+      image: speedTest
+     
+    },
+    {
+      title: "Tupac Shakur Illustration",
+      description: "Discover a range of drawing ideas inspired by Tupac Shakur...",
+      image: pac
+    },
+    {
+      title: "Movie App",
+      description: "Explore movies, shows, trailers, ratings and cast in one place.",
+      image: movie
+    }
+  ]
+
+  return (
+    <Box
+      as="section"
+      id="projects"
+      minH="100vh"
+      minW='100%'
+      px="15%"
+      py="10em"
+      bg={bg}
+      color={color}
+      fontFamily="Poppins"
+      scrollSnapAlign="start"
+      backgroundImage={useColorModeValue(
+        `url('/img/bg.png'), repeating-linear-gradient(to right, transparent 0 500px, #73814B33 500px 501px)`,
+        `repeating-linear-gradient(to right, transparent 0 500px, #44502233 500px 501px)`
+      )}
+      backgroundSize="100%"
+      backgroundRepeat="no-repeat"
+    >
+      {/* Animated Section Number */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 0.1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <Text
+          fontFamily="devil breeze"
+          fontSize={['5em', '8em', '12em']}
+          fontWeight="bold"
+          position="absolute"
+          left="5%"
+          top="1em"
+        >
+          04
+        </Text>
+      </motion.div>
+
+      {/* Section Title */}
+      <Text
+        as="h2"
+        fontSize={['2xl', '4xl', '6xl']}
+        fontFamily="devil breeze"
+        fontWeight="bold"
+        textAlign="center"
+        mb={16}
+        position="relative"
+        zIndex="1"
+      >
         my latest works
       </Text>
-      <HStack display="flex" alignItems="center" justifyContent="center" gap={6} flexWrap="wrap">
-        <Card.Root h={400} maxW="320px" overflow="hidden">
-          <Image
-          src={speedTest}
-          width="400px"
-             height="200px"
-             objectFit="cover"
-            // alt="Green double couch with wooden legs"
-          />
-          <Card.Body gap="2">
-            <Card.Title>Typing Speed Test</Card.Title>
-            <Card.Description>
-              Test your typing speed and accuracy with various text options and test lengths. Customize your text,
-               keyboard layout, entry mode, and share your results easily.
-            </Card.Description>
-            
-          </Card.Body>
-          <Card.Footer gap="2">
-            <Button variant="solid">See Project</Button>
-          </Card.Footer>
-        </Card.Root>
-        <Card.Root  h={400}  maxW="320px" overflow="hidden">
-          <Image
-            src={pac}
-             width="400px"
-             height="180px"
-             objectPosition="center"
-             
-             objectFit="cover"
-          
-          
-            alt="Green double couch with wooden legs"
-          />
-          <Card.Body gap="1">
-            <Card.Title>Tupac Shakur illustration</Card.Title>
-            <Card.Description>
-             Discover a range of drawing ideas inspired by the life and legacy of Tupac Shakur,
-              from minimalist sketches to vibrant, expressive pieces.
-            </Card.Description>
-          
-          </Card.Body>
-          <Card.Footer gap="2">
-            <Button variant="solid">See Project</Button>
 
-          </Card.Footer>
-        </Card.Root>
-        <Card.Root  h={400}  maxW="320px" overflow="hidden">
-          <Image
-            src={movie}
-              width="400px"
-             height="180px"
-             objectPosition="center"
-             
-             objectFit="cover"
-            alt="Green double couch with wooden legs"
+      {/* Alternating Cards */}
+      <VStack spacing={16} align="stretch">
+        {projects.map((project, idx) => (
+          <ProjectCard
+            key={idx}
+            project={project}
+            align={idx % 2 === 0 ? "left" : "right"}
           />
-          <Card.Body gap="1">
-            <Card.Title>Movie Apps to Watch Movies list</Card.Title>
-            <Card.Description>
-              Simple and convenient application for explore movies, tv shows theirs details,
-               ratings, trailers, cast and much more in one place
-            </Card.Description>
-           
-          </Card.Body>
-          <Card.Footer gap="2">
-           <Button variant="solid">See Project</Button>
-
-          </Card.Footer>
-        </Card.Root>
-      </HStack>
+        ))}
+      </VStack>
     </Box>
   )
 }
