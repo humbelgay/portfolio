@@ -1,104 +1,129 @@
-import { useEffect, useRef, useState } from "react";
-import { Blockquote, Stack } from "@chakra-ui/react"
-import { Box , Separator,Flex, Image, useBreakpointValue, Heading, Text, Button, VStack, HStack } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import Timepng from "../assets/time.png"
- import { 
+import { Box, Text, Flex, VStack, useBreakpointValue } from "@chakra-ui/react";
+import { Blockquote } from "@chakra-ui/react";
+import {
   useColorModeValue,
-} from "@/components/ui/color-mode"
-
-
-
-
-
-
-
-// Register ScrollTrigger
-if (typeof window !== "undefined" && gsap && ScrollTrigger) {
-  gsap.registerPlugin(ScrollTrigger);
-}
+} from "@/components/ui/color-mode";
 
 export const Projects = () => {
-  const [rotation, setRotation] = useState(0);
   const bgColor = useColorModeValue("gray.100", "gray.900");
-  const imageFilter = useColorModeValue("invert(0)", "invert(1)");
-  const textColor = useColorModeValue("gray.800", "gray.100");
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
-  return(
+  return (
+    <Box minH="100vh" w="100%" py={10}>
+      <Text as="h1" fontSize={{ base: "3xl", md: "5xl" }} fontWeight="bold" mb={8} textAlign="center">
+              projects
+            </Text>
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        w="100%"
+        maxW="1800px" // Added max width for very large screens
+        mx="auto" // Center the content horizontally
+        minH="100vh"
+        align="center" // Center vertically
+        // justify="center" // Center horizontally
+      >
+        {/* Left Column */}
+        <Box 
+          bg={bgColor} 
+          p={{ base: 4, md: 12, lg: 16 }} // Increased padding on larger screens
+          w={{ base: "100%", md: "50%" }}
+          minH={{ base: "auto", md: "100vh" }}
+          // display="flex"
+          flexDirection="column"
+          justifyContent="center" // Center content vertically
+        >
+          <VStack  spacing={8} w="100%" maxW="600px" mx="auto">
+            <Blockquote.Root variant="subtle">
+              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
+                If anyone thinks he is something when he is nothing, he deceives
+                himself. Each one should test his own actions. Then he can take pride
+                in himself, without comparing himself to anyone else.
+              </Blockquote.Content>
+            </Blockquote.Root>
+            <Blockquote.Root  variant="solid">
+              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
+                If anyone thinks he is something when he is nothing, he deceives
+                himself. Each one should test his own actions. Then he can take pride
+                in himself, without comparing himself to anyone else.
+              </Blockquote.Content>
+            </Blockquote.Root>
+          </VStack>
 
-    <Box h={'100%'} >
-    <Stack  display={'flex'} align={'center'} justify={'center'} direction={{ base: "column", md: "row" }} justifyContent={"space-evenly"}>
-      <Box bg={bgColor} p={10} w={'50%'} h={'100vh'} >
-           <Stack gap="8">
-      <Blockquote.Root variant="subtle">
-        <Blockquote.Content>
-          If anyone thinks he is something when he is nothing, he deceives
-          himself. Each one should test his own actions. Then he can take pride
-          in himself, without comparing himself to anyone else.
-        </Blockquote.Content>
-      </Blockquote.Root>
-      <Blockquote.Root variant="solid">
-        <Blockquote.Content>
-          If anyone thinks he is something when he is nothing, he deceives
-          himself. Each one should test his own actions. Then he can take pride
-          in himself, without comparing himself to anyone else.
-        </Blockquote.Content>
-      </Blockquote.Root>
-    </Stack>
-       <Stack gap="8" position={"relative"} top={200}>
-      <Blockquote.Root variant="subtle">
-        <Blockquote.Content>
-          If anyone thinks he is something when he is nothing, he deceives
-          himself. Each one should test his own actions. Then he can take pride
-          in himself, without comparing himself to anyone else.
-        </Blockquote.Content>
-      </Blockquote.Root>
-      <Blockquote.Root variant="solid">
-        <Blockquote.Content>
-          If anyone thinks he is something when he is nothing, he deceives
-          himself. Each one should test his own actions. Then he can take pride
-          in himself, without comparing himself to anyone else.
-        </Blockquote.Content>
-      </Blockquote.Root>
-    </Stack>
+          {!isMobile && (
+            <VStack spacing={8} mt={12} w="100%" maxW="600px" mx="auto">
+              <Blockquote.Root variant="subtle">
+                <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
+                  If anyone thinks he is something when he is nothing, he deceives
+                  himself. Each one should test his own actions. Then he can take pride
+                  in himself, without comparing himself to anyone else.
+                </Blockquote.Content>
+              </Blockquote.Root>
+              <Blockquote.Root variant="solid">
+                <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
+                  If anyone thinks he is something when he is nothing, he deceives
+                  himself. Each one should test his own actions. Then he can take pride
+                  in himself, without comparing himself to anyone else.
+                </Blockquote.Content>
+              </Blockquote.Root>
+               <Blockquote.Root  variant="subtle">
+                <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
+                  If anyone thinks he is something when he is nothing, he deceives
+                  himself. Each one should test his own actions. Then he can take pride
+                  in himself, without comparing himself to anyone else.
+                </Blockquote.Content>
+              </Blockquote.Root>
+                
+            </VStack>
+          )}
+        </Box>
 
-      </Box>
-      <Box bg={bgColor} p={10} w={'50%'}  h={'100vh'}  >
-
-                   <Stack gap="8"  position={'relative'}  top={60}> 
-      <Blockquote.Root variant="subtle">
-        <Blockquote.Content>
-          If anyone thinks he is something when he is nothing, he deceives
-          himself. Each one should test his own actions. Then he can take pride
-          in himself, without comparing himself to anyone else.
-        </Blockquote.Content>
-      </Blockquote.Root>
-      <Blockquote.Root variant="solid">
-        <Blockquote.Content>
-          If anyone thinks he is something when he is nothing, he deceives
-          himself. Each one should test his own actions. Then he can take pride
-          in himself, without comparing himself to anyone else.
-        </Blockquote.Content>
-      </Blockquote.Root>
-    </Stack>
-      </Box>
-
-    </Stack>
+        {/* Right Column */}
+        <Box 
+         bg={bgColor} 
+          p={{ base: 4, md: 12, lg: 16 }} // Increased padding on larger screens
+          w={{ base: "100%", md: "50%" }}
+          minH={{ base: "auto", md: "100vh" }}
+          // display="flex"
+          flexDirection="column"
+          justifyContent="center"// Center content vertically
+        >
+          <VStack 
+            spacing={8} 
+            w="100%"
+            maxW="600px"
+            mx="auto"
+          >
+            <Blockquote.Root variant="subtle">
+              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
+                If anyone thinks he is something when he is nothing, he deceives
+                himself. Each one should test his own actions. Then he can take pride
+                in himself, without comparing himself to anyone else.
+              </Blockquote.Content>
+            </Blockquote.Root>
+            <Blockquote.Root variant="solid">
+              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
+                If anyone thinks he is something when he is nothing, he deceives
+                himself. Each one should test his own actions. Then he can take pride
+                in himself, without comparing himself to anyone else.
+              </Blockquote.Content>
+              
+              
+            </Blockquote.Root>
+               <Blockquote.Root variant="subtle">
+              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
+                If anyone thinks he is something when he is nothing, he deceives
+                himself. Each one should test his own actions. Then he can take pride
+                in himself, without comparing himself to anyone else.
+              </Blockquote.Content>
+              
+              
+            </Blockquote.Root>
+          </VStack>
+        </Box>
+      </Flex>
     </Box>
-  )
-
- 
-  
+  );
 };
-
-
-
-
-
-
-
 
 
 

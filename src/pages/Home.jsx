@@ -1,35 +1,25 @@
-import {  Box, Card, Button,Flex , Image, Text, VStack, HStack, IconButton } from '@chakra-ui/react';
-// import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { useState, useMemo  } from "react";
-import { useColorMode,useColorModeValue } from "@/components/ui/color-mode";
+import { Box, Card, Button, Flex, Image, Text, VStack, HStack, IconButton } from '@chakra-ui/react';
+import { useState, useMemo } from "react";
+import { useColorMode, useColorModeValue } from "@/components/ui/color-mode";
 import { useBreakpointValue } from "@chakra-ui/react";
-import speedTest  from '@/assets/speedType.jpg'
-import pac  from '@/assets/IMG_0533.jpg'
-import movie  from '@/assets/movie.jpg'
-// import hero  from '../assets/IMG-123.jpg'
-
+import speedTest from '@/assets/speedType.jpg'
+import pac from '@/assets/IMG_0533.jpg'
+import movie from '@/assets/movie.jpg'
 import { motion } from "framer-motion";
 
-
-
-// import Pngs  from "../../public/layers"
-
-
- const layers = [
+const layers = [
   "doodle1",
   "doodle2",
-   "doodle4",
+  "doodle4",
   "doodle5"
 ];
 
-
-
 const MotionBox = motion(Box);
 
-export default function  Home ()   {
+export default function Home() {
   const { colorMode } = useColorMode();
-  const [isHovering, setIsHovering] = useState(null);
-  const isMobile = useBreakpointValue({ base: true, md: false });
+  // const [isHovering, setIsHovering] = useState(null);
+  // const isMobile = useBreakpointValue({ base: true, md: false });
 
   const layerSettings = useMemo(() => {
     return layers.map((base, index) => ({
@@ -38,50 +28,48 @@ export default function  Home ()   {
       speed: 0.1 + index * 0.05,
     }));
   }, [colorMode]);
+
   return (
-    <VStack >
+    <VStack spacing={0}> {/* Remove spacing between sections on mobile */}
       <Box
-         w="100%"
-         h="80Vh"
-         overflow="hidden"
-         position="relative"
-        //  mt={-10}
-        //  boxSizing={'border-box'}
-       >
-         {layerSettings.map((layer, i) => (
-           <MotionBox
-             key={i}
-             position="absolute"
-             top={0}
-             
-             left={0}
-             w="100%"
-             h="100%"
-             zIndex={layer.zIndex}
-             style={{
-               backgroundImage: `url(${layer.src})`,
-                backgroundSize: "contain",
-               backgroundPosition: "center",
-               backgroundRepeat: "no-repeat",
-        
-             }}
-             animate={{
-               x: [0, -layer.speed * 100, 0],
-             }}
-             transition={{
-               repeat: Infinity,
-               repeatType: "loop",
-               duration: 10 - i * 2,
-               ease: "linear",
-             }}
-           />
-         ))}
-
-         
-       </Box>
-         <Demo></Demo>
-
-       </VStack>
+        w="100%"
+        h={{ base: "35vh", md: "50vh" }} // Explicitly set 50vh for both mobile and desktop
+        overflow="hidden"
+        // pt={20}
+        position="relative"
+        m={{ base: 0, md: 0 }} // Remove margin on mobile, keep on desktop
+        // p={{ base: 0, md: 10 }} // Remove margin on mobile, keep on desktop
+        boxSizing={'border-box'}
+      >
+        {layerSettings.map((layer, i) => (
+          <MotionBox
+            key={i}
+            position="absolute"
+            top={0}
+            left={0}
+            w="100%"
+            h="100%"
+            zIndex={layer.zIndex}
+            style={{
+              backgroundImage: `url(${layer.src})`,
+              backgroundSize: "contain",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+            animate={{
+              x: [0, -layer.speed * 100, 0],
+            }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 10 - i * 2,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </Box>
+      <Demo />
+    </VStack>
   );
 }
 
@@ -92,13 +80,10 @@ const ProjectCard = ({ project, align = "left" }) => {
 
   return (
     <MotionBox
-      w={useBreakpointValue({ base: "100%", md: "48%" })}
+      w={useBreakpointValue({ base: "100%", md: "50%" })}
       alignSelf={isLeft ? "flex-start" : "flex-end"}
-      bg={bg}
       color={textColor}
-      p={6}
-      mb={20}
-      borderRadius="xl"
+      p={4}
       shadow="lg"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -146,9 +131,10 @@ export const Demo = () => {
       id="projects"
       minH="100vh"
       minW='100%'
-      px="15%"
-      py="10em"
-      bg={bg}
+      px="8%"
+      py="4em"
+      bg={bg} 
+     
       color={color}
       fontFamily="Poppins"
       scrollSnapAlign="start"
@@ -168,24 +154,24 @@ export const Demo = () => {
       >
         <Text
           fontFamily="devil breeze"
-          fontSize={['5em', '8em', '12em']}
-          fontWeight="bold"
+          fontSize={['2em', '6em', '8em']}
+          fontWeight="italic"
           position="absolute"
           left="5%"
-          top="1em"
+          top="8%"
         >
-          04
+          Hafiz Creative
         </Text>
       </motion.div>
 
       {/* Section Title */}
       <Text
-        as="h2"
+        as="h1"
         fontSize={['2xl', '4xl', '6xl']}
         fontFamily="devil breeze"
         fontWeight="bold"
         textAlign="center"
-        mb={16}
+        mb={5}
         position="relative"
         zIndex="1"
       >
@@ -193,10 +179,11 @@ export const Demo = () => {
       </Text>
 
       {/* Alternating Cards */}
-      <VStack spacing={16} align="stretch">
+      <VStack spacing={15} align="stretch">
         {projects.map((project, idx) => (
           <ProjectCard
             key={idx}
+            
             project={project}
             align={idx % 2 === 0 ? "left" : "right"}
           />

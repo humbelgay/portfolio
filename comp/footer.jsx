@@ -13,11 +13,12 @@ const Footer = () => {
   const hoverColor = useColorModeValue('blue.500', 'blue.300');
 
   return (
-    <Box w={'100%'} as="footer" bg={bgColor} py={2} px={{ base: 0, md: 10 }} mt="10">
+    <Box w={'100%'} as="footer" bg={bgColor} py={2} px={{ base: 0, md: 10 }} mt="auto">
       <Flex
         direction={{ base: 'column', md: 'row' }}
         maxW="full"
-        mx="auto"
+        // mx="4"
+        m={2}
         justify="space-between"
         align="flex-start"
         gap={8}

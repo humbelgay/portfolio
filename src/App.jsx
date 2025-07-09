@@ -42,15 +42,10 @@ function App() {
                 </ErrorBoundary>
                 
                 } />
-              <Route path="/blog" element={<Blog />} />
+              {/* <Route path="/blog" element={<Blog />} /> */}
               <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={
-                  <ErrorBoundary>
-                <Contact />
-                </ErrorBoundary>
-              } />
+              <Route path="/contact" element={<Contact/>} />
             </Routes>
-          {/* <NavButtons  /> */}
           </Box>
           <Footer 
  

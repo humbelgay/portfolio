@@ -15,8 +15,8 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode";
-import React from "react";
-import hero from "../assets/IMG-123.jpg";
+// import React from "react";
+import hero from "../assets/hafizHero.jpg"; // Adjust the path as necessary
 
 const About = () => {
   return (
@@ -35,10 +35,12 @@ const About = () => {
         <Center>
           <Image
             src={hero}
-            alt="Naruto Uzumaki"
-            objectFit="cover"
-            boxSize={{ base: "100px", md: "300px" }}
-            borderRadius="md"
+  alt="Hafiz Adem"
+  borderRadius="10px"
+  objectFit="cover"
+  width={{ base: "100%", md: "50%", lg: "80%" }}
+  maxW="500px"
+  height="auto"
           />
         </Center>
 
@@ -69,11 +71,11 @@ const About = () => {
           <Text as="h2" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mb={6} textAlign="center">
             Skills
           </Text>
-          <Stack spacing={6}>
+          <Stack spacing={6} align="center" justify="center" mb={20 }>
             {[
               { label: "React", value: 90 },
-              { label: "mongoose", value: 85 },
-              { label: "next.js", value: 70 },
+              { label: "node.js", value: 85 },
+              { label: "express", value: 70 },
             ].map((skill, i) => (
               <Box key={i} w="100%" maxW="400px" mx="auto">
                 <Text mb={1} fontWeight="semibold">
@@ -97,14 +99,14 @@ const About = () => {
           <Text as="h2" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mb={6} textAlign="center">
             Projects
           </Text>
-          <SimpleGrid columns={{ base: 2, md: 3 }} spacing={6}>
+          <SimpleGrid mb={8} columns={{ base: 2, md: 3 }} spacing={8} textAlign="center">
             {[
-              { value: "+450", label: "PHP" },
-              { value: "+45", label: "CSS" },
-              { value: "+40", label: "HTML" },
+              { value: "+14", label: "react" },
+              { value: "+45", label: "javaScript" },
+              { value: "+60", label: " digital illustrator" },
               { value: "+4", label: "Node.js" },
-              { value: "$450", label: "JavaScript" },
-              { value: "$450", label: "React" },
+              { value: "+30", label: "paints" },
+              { value: "+10", label: "3D model" },
             ].map((project, i) => (
               <Grid key={i} textAlign="center" p={2}>
                 <Text fontSize={{ base: "lg", md: "2xl" }} fontWeight="bold">

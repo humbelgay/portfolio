@@ -31,10 +31,10 @@ const  Header=()=> {
     >
       <Heading size="md">HAFIZ ADEM</Heading>
       <Flex bg={'none'} gap={4}>
-        <IconButton bg={{ color: bg }}  _hover={{ color: hoverColor }}><LuInstagram /></IconButton>
-        <IconButton bg={{ color: bg }}  _hover={{ color: hoverColor }}><LuGithub /></IconButton>
-        <IconButton  bg={{ color: bg }}  _hover={{ color: hoverColor }}>< LuTwitter/></IconButton>
-        <IconButton bg={{ color: bg }}  _hover={{ color: hoverColor }}><LuLinkedin /></IconButton>
+        <IconButton size={'sm'}  bg={{ color: bg }}  _hover={{ color: hoverColor }}><LuInstagram /></IconButton>
+        <IconButton size={'sm'} bg={{ color: bg }}  _hover={{ color: hoverColor }}><LuGithub /></IconButton>
+        <IconButton size={'sm'} bg={{ color: bg }}  _hover={{ color: hoverColor }}>< LuTwitter/></IconButton>
+        <IconButton size={'sm'}bg={{ color: bg }}  _hover={{ color: hoverColor }}><LuLinkedin /></IconButton>
 
    
      
