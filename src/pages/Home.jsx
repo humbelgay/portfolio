@@ -18,6 +18,8 @@ const MotionBox = motion(Box);
 
 export default function Home() {
   const { colorMode } = useColorMode();
+  const textColor = useColorModeValue("#1B1B1B", "#eef8ce")
+
   // const [isHovering, setIsHovering] = useState(null);
   // const isMobile = useBreakpointValue({ base: true, md: false });
 
@@ -35,6 +37,8 @@ export default function Home() {
         w="100%"
         h={{ base: "35vh", md: "50vh" }} // Explicitly set 50vh for both mobile and desktop
         overflow="hidden"
+            color={textColor}
+
         // pt={20}
         position="relative"
         m={{ base: 0, md: 0 }} // Remove margin on mobile, keep on desktop
@@ -47,6 +51,7 @@ export default function Home() {
             position="absolute"
             top={0}
             left={0}
+            color={textColor}
             w="100%"
             h="100%"
             zIndex={layer.zIndex}
@@ -130,21 +135,16 @@ export const Demo = () => {
       as="section"
       id="projects"
       minH="100vh"
-      minW='100%'
-      px="8%"
+      minW='90%'
+      px="4%"
       py="4em"
       bg={bg} 
-     
       color={color}
-      fontFamily="Poppins"
       scrollSnapAlign="start"
-      backgroundImage={useColorModeValue(
-        `url('/img/bg.png'), repeating-linear-gradient(to right, transparent 0 500px, #73814B33 500px 501px)`,
-        `repeating-linear-gradient(to right, transparent 0 500px, #44502233 500px 501px)`
-      )}
       backgroundSize="100%"
       backgroundRepeat="no-repeat"
     >
+      
       {/* Animated Section Number */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -178,12 +178,14 @@ export const Demo = () => {
         my latest works
       </Text>
 
+      {/* Add gap between section title and cards */}
+      <Box h={{ base: 8, md: 12 }} />
+
       {/* Alternating Cards */}
-      <VStack spacing={15} align="stretch">
+      <VStack spacing={5} align="stretch">
         {projects.map((project, idx) => (
           <ProjectCard
             key={idx}
-            
             project={project}
             align={idx % 2 === 0 ? "left" : "right"}
           />

@@ -8,9 +8,9 @@ import { BiCopyright } from 'react-icons/bi';
 
 const Footer = () => {
   const bgColor = useColorModeValue('gray.100', 'gray.900');
-  const textColor = useColorModeValue('gray.600', 'gray.400');
-  const headingColor = useColorModeValue('gray.700', 'gray.300');
-  const hoverColor = useColorModeValue('blue.500', 'blue.300');
+  const textColor = useColorModeValue("#1B1B1B", "#eef8ce");
+  const headingColor = useColorModeValue("#1B1B1B", "#eef8ce");
+  const hoverColor = useColorModeValue("#1B1B1B", "#eef8ce");
 
   return (
     <Box w={'100%'} as="footer" bg={bgColor} py={2} px={{ base: 0, md: 10 }} mt="auto">
@@ -25,7 +25,7 @@ const Footer = () => {
       >
         {/* Company Info */}
         <Box maxW="300px">
-          <Heading as="h3" size="md" mb={4} color={headingColor}>
+          <Heading as="h3" size="md" mb={4} color={textColor}>
             Hafiz Adem
           </Heading>
           <Text color={textColor} mb={4}>

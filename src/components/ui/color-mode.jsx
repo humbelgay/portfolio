@@ -64,7 +64,7 @@ export const ColorModeButton = React.forwardRef(
 export const LightMode = React.forwardRef(function LightMode(props, ref) {
   return (
     <Span
-      color='fg'
+      color='fg'  // Default light mode color
       display='contents'
       className='chakra-theme light'
       colorPalette='gray'
@@ -78,7 +78,7 @@ export const LightMode = React.forwardRef(function LightMode(props, ref) {
 export const DarkMode = React.forwardRef(function DarkMode(props, ref) {
   return (
     <Span
-      color='fg'
+      color='#eef8ce'  // Your custom dark mode text color
       display='contents'
       className='chakra-theme dark'
       colorPalette='gray'

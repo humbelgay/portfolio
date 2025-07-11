@@ -1,6 +1,8 @@
 // src/App.jsx
 import {ChakraProvider} from '@chakra-ui/react';
-
+import {
+  useColorModeValue,
+} from "@/components/ui/color-mode";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { IconButton,Box, Sticky, VStack } from "@chakra-ui/react";
 // import { Provider} from "@chakra-ui/react"
@@ -19,27 +21,34 @@ import Projects from '../src/pages/projects'
 
 
 function App() {
+
+  const textColor = useColorModeValue("#1B1B1B", "#eef8ce")
+
+
   return (
     
    
         <VStack  
+        // color={textColor}
           h="100vh"
   overflowY="scroll"
+  // color={'white'}
   // scrollSnapType="y mandatory"
         >
  
         <Header />
      
-          <Box w={'100%'} spacing={6} p={8} >
+      
+          <Box  color={textColor}  w={'100%'} spacing={6} p={8} >
           <StickyNav></StickyNav>
 
 
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={
-                <ErrorBoundary>
+                // <ErrorBoundary>
                 <About />
-                </ErrorBoundary>
+                // </ErrorBoundary>
                 
                 } />
               {/* <Route path="/blog" element={<Blog />} /> */}
