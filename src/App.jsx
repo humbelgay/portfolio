@@ -54,6 +54,7 @@ function App() {
               {/* <Route path="/blog" element={<Blog />} /> */}
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact/>} />
+
             </Routes>
           </Box>
           <Footer 

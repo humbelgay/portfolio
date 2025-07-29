@@ -1,134 +1,209 @@
-import { Box, Text, Flex, VStack, useBreakpointValue } from "@chakra-ui/react";
-import { Blockquote } from "@chakra-ui/react";
-import {
-  useColorModeValue,
-} from "@/components/ui/color-mode";
+import { Box,Badge, Text,HStack, Flex, Card,Button,Image, VStack, useBreakpointValue } from "@chakra-ui/react";
+import { useColorModeValue } from "@/components/ui/color-mode";
 
+import speedTest from '@/assets/speedType.jpg'
+import pac2 from '@/assets/pac2.jpg'
+import node from '@/assets/node.jpg'
+import theGame from '@/assets/theGame.jpg'
+import ecommerce from '@/assets/ecommerce.jpg'
+
+import { Stack } from "@chakra-ui/react"
+import { Separator } from "@chakra-ui/react"
 export const Projects = () => {
   const bgColor = useColorModeValue("gray.100", "gray.900");
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const textColor = useColorModeValue("#1B1B1B", "#eef8ce")
+
 
   return (
-    <Box minH="100vh" w="100%" py={10}>
-      <Text as="h1" fontSize={{ base: "3xl", md: "5xl" }} fontWeight="bold" mb={8} textAlign="center">
+    <Box w="100%" px={{ base: 4, md: 10 }} mx="auto" bg={bgColor}>
+         <Text
+              as="h1"
+              fontSize={{ base: "3xl", md: "5xl" }}
+              fontWeight="bold"
+              mb={8}
+              textAlign="center"
+            >
               projects
             </Text>
-      <Flex
-        direction={{ base: "column", md: "row" }}
-        w="100%"
-        maxW="1800px" // Added max width for very large screens
-        mx="auto" // Center the content horizontally
-        minH="100vh"
-        align="center" // Center vertically
-        // justify="center" // Center horizontally
+      <Text
+        as={"h2"}
+        fontSize={{ base: "3xl", md: "5xl" }}
+        // fontWeight="bold"
+        mb={8}
+        textAlign="center"
       >
-        {/* Left Column */}
-        <Box 
-          bg={bgColor} 
-          p={{ base: 4, md: 12, lg: 16 }} // Increased padding on larger screens
-          w={{ base: "100%", md: "50%" }}
-          minH={{ base: "auto", md: "100vh" }}
-          // display="flex"
-          flexDirection="column"
-          justifyContent="center" // Center content vertically
-        >
-          <VStack  spacing={8} w="100%" maxW="600px" mx="auto">
-            <Blockquote.Root variant="subtle">
-              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
-                If anyone thinks he is something when he is nothing, he deceives
-                himself. Each one should test his own actions. Then he can take pride
-                in himself, without comparing himself to anyone else.
-              </Blockquote.Content>
-            </Blockquote.Root>
-            <Blockquote.Root  variant="solid">
-              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
-                If anyone thinks he is something when he is nothing, he deceives
-                himself. Each one should test his own actions. Then he can take pride
-                in himself, without comparing himself to anyone else.
-              </Blockquote.Content>
-            </Blockquote.Root>
-          </VStack>
-
-          {!isMobile && (
-            <VStack spacing={8} mt={12} w="100%" maxW="600px" mx="auto">
-              <Blockquote.Root variant="subtle">
-                <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
-                  If anyone thinks he is something when he is nothing, he deceives
-                  himself. Each one should test his own actions. Then he can take pride
-                  in himself, without comparing himself to anyone else.
-                </Blockquote.Content>
-              </Blockquote.Root>
-              <Blockquote.Root variant="solid">
-                <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
-                  If anyone thinks he is something when he is nothing, he deceives
-                  himself. Each one should test his own actions. Then he can take pride
-                  in himself, without comparing himself to anyone else.
-                </Blockquote.Content>
-              </Blockquote.Root>
-               <Blockquote.Root  variant="subtle">
-                <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
-                  If anyone thinks he is something when he is nothing, he deceives
-                  himself. Each one should test his own actions. Then he can take pride
-                  in himself, without comparing himself to anyone else.
-                </Blockquote.Content>
-              </Blockquote.Root>
-                
-            </VStack>
-          )}
-        </Box>
-
-        {/* Right Column */}
-        <Box 
-         bg={bgColor} 
-          p={{ base: 4, md: 12, lg: 16 }} // Increased padding on larger screens
-          w={{ base: "100%", md: "50%" }}
-          minH={{ base: "auto", md: "100vh" }}
-          // display="flex"
-          flexDirection="column"
-          justifyContent="center"// Center content vertically
-        >
-          <VStack 
-            spacing={8} 
-            w="100%"
-            maxW="600px"
-            mx="auto"
-          >
-            <Blockquote.Root variant="subtle">
-              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
-                If anyone thinks he is something when he is nothing, he deceives
-                himself. Each one should test his own actions. Then he can take pride
-                in himself, without comparing himself to anyone else.
-              </Blockquote.Content>
-            </Blockquote.Root>
-            <Blockquote.Root variant="solid">
-              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
-                If anyone thinks he is something when he is nothing, he deceives
-                himself. Each one should test his own actions. Then he can take pride
-                in himself, without comparing himself to anyone else.
-              </Blockquote.Content>
-              
-              
-            </Blockquote.Root>
-               <Blockquote.Root variant="subtle">
-              <Blockquote.Content fontSize={{ base: "md", md: "lg", lg: "xl" }}>
-                If anyone thinks he is something when he is nothing, he deceives
-                himself. Each one should test his own actions. Then he can take pride
-                in himself, without comparing himself to anyone else.
-              </Blockquote.Content>
-              
-              
-            </Blockquote.Root>
-          </VStack>
-        </Box>
-      </Flex>
-
-
+        Here are some of the things I've been working on.
+      </Text>
+      <Separator size={"lg"} color={'orange'}  mb={20}/>
+     <Flex   direction={isMobile ? "column" : "row"} w="100%" minH="100vh" bg={bgColor} p={4} gap={6}>
       
+      <Box flex="1"  borderRadius="lg" bg={useColorModeValue("white", "gray.800")} boxShadow="md" alignItems={"center"} display="flex" flexDirection="column">
+       
+        <Card.Root color={textColor}    flexDirection="column" overflow="hidden" maxW="full" bg="transparent">
+          <Image
+            objectFit="cover"
+            maxW="100%"
+            src={speedTest}
+            alt="Caffe Latte"
+          />
+    <Box bgColor={'transparent'}   p="2" flex="1">
+      <Card.Body>
+        <Card.Title mb="4">Typing Speed Test</Card.Title>
+        <Card.Description color={textColor}     fontSize={16} lineHeight={1.5}>
+          Test your typing speed and accuracy with various text options
+          and track your progress over time. Perfect for improving your typing skills.
+          <br />
+          <b>Tech Stack:</b> Built with the MERN stack (MongoDB, Express, React, Node.js) for a seamless full-stack experience. Real-time feedback, persistent user stats, and a modern UI make it both fun and practical.
+        </Card.Description>
+        <HStack mt="4">
+          <Badge>Hot</Badge>
+          <Badge>Caffeine</Badge>
+        </HStack>
+      </Card.Body>
+      <Card.Footer>
+        <Button>Buy Latte</Button>
+      </Card.Footer>
+    </Box>
+  </Card.Root>
+
+      <Separator size={"lg"} colorPalette={'red'}  mt={20}/>
+
+              <Card.Root color={textColor}    flexDirection="column" overflow="hidden" maxW="full" bg="transparent">
+          <Image
+            objectFit="cover"
+            maxW="100%"
+            src={ecommerce}
+            alt="Caffe Latte"
+          />
+    <Box bgColor={'transparent'}   p="2" flex="1">
+      <Card.Body>
+        <Card.Title mb="4">Advanced (MERN )Stack E-Commerce Platformt</Card.Title>
+        <Card.Description color={textColor}    fontSize={16} lineHeight={1.5}>
+          Built a high-performance, full-stack e-commerce platform using the MERN stack (MongoDB, Express.js, React, Node.js) with Redis caching for optimized speed and scalability. 
+        <Card.Title m={"4"}> The platform features: </Card.Title>
+           <p> ✅ Secure Authentication – JWT-based login/signup with access & refresh tokens for enhanced security.</p>  <br/>
+           <p>✅ Stripe Payment Integration – Seamless and secure checkout with real-time payment processing.</p> <br/>
+           <p>✅ Admin Dashboard – Full control over products, orders, and sales analytics for business insights.</p> <br/>
+           <p>✅ Redis Caching – Improved performance with fast data retrieval for frequent queries.</p> <br />
+           <p>✅ Responsive UI – Modern, mobile-friendly design built with Tailwind CSS.   </p> <br />
+            <p>✅ Product Management – Easy CRUD operations for products, categories, and inventory.</p> <br/>
 
 
-    
+        </Card.Description>
+        <HStack mt={"4"}>
+          <Badge>Hot</Badge>
+          <Badge>Caffeine</Badge>
+        </HStack>
+      </Card.Body>
+      <Card.Footer>
+        <Button>Buy Latte</Button>
+      </Card.Footer>
+    </Box>
+  </Card.Root>
+      
+       
+      
+      </Box>
+      <Box flex="1" p={0} borderRadius="lg" bg={useColorModeValue("white", "gray.800")} boxShadow="md" alignItems={"center"} display="flex" flexDirection="column">
+      
+           <Card.Root flexDirection="column" overflow="hidden" maxW="full" bg="transparent">
+          <Image
+            objectFit="cover"
+            maxW="100%"
+            // maxH={"500px"}
+            src={pac2}
+            alt="Caffe Latte"
+          />
+    <Box color={textColor}    bgColor={'transparent'}   p="2" flex="1">
+      <Card.Body>
+        <Card.Title mb="4">Tupac Shakur Illustration</Card.Title>
+        <Card.Description color={textColor}    fontSize={16} lineHeight={1.5}>
+          Discover a range of drawing ideas inspired by Tupac Shakur
+          and explore the intersection of art and hip-hop culture.
+          <br />
+          <b>Tech Stack:</b> This project showcases a collection of illustrations and concepts, blending artistic expression with the legacy of Tupac Shakur.
+        </Card.Description>
+        <HStack mt="4">
+          <Badge>Hot</Badge>
+          <Badge>Caffeine</Badge>
+        </HStack>
+      </Card.Body>
+      <Card.Footer>
+        <Button>Buy Latte</Button>
+      </Card.Footer>
+    </Box>
+  </Card.Root  >
+      <Separator size={"lg"} colorPalette={'red'}  mt={20}/>
 
+      <Card.Root  color={textColor}    flexDirection="column" overflow="hidden" maxW="full" bg="transparent">
+          <Image
+            objectFit="cover"
+            maxW="100%"
+            src={theGame}
+            alt="Caffe Latte"
+          />
+    <Box bgColor={'transparent'}    p="2" flex="1">
+      <Card.Body>
+        <Card.Title mb="4">Breakout the block: 2D Game</Card.Title>
+        <Card.Description color={textColor}    fontSize={16} lineHeight={1.5}>
+            Breakout the Block is a classic 2D arcade game where you control a paddle to bounce a ball and break all the blocks on the screen. The game is built using only HTML, CSS, and JavaScript, featuring smooth animations and responsive controls. Challenge yourself to clear every level and achieve the highest score!
 
+        </Card.Description   >
+        <HStack mt="4">
+          <Badge>Hot</Badge>
+          <Badge>Caffeine</Badge>
+        </HStack>
+      </Card.Body>
+      <Card.Footer>
+        <Button>Buy Latte</Button>
+      </Card.Footer>
+    </Box>
+  </Card.Root>
+
+      <Separator size={"lg"} color={'white'}  mt={20}/>
+
+      <Card.Root color={textColor}    flexDirection="column" overflow="hidden" maxW="full" bg="transparent">
+          <Image
+            objectFit="cover"
+            maxW="100%"
+            src={node}
+            alt="Caffe Latte"
+          />
+    <Box bgColor={'transparent'}   p="2" flex="1">
+      <Card.Body>
+        <Card.Title mb="4">Node.js Backend with Enterprise-Grade Features</Card.Title>
+        <Card.Description color={textColor}    fontSize={16} lineHeight={1.5}>
+         A high-performance, scalable backend built with Node.js, Express.js, and MongoDB, designed for modern web & mobile applications.
+        <Card.Title m="4"> Core Architecture: </Card.Title>
+         ✅ RESTful API Design – Clean, well-structured endpoints following best practices.<br/> 
+         ✅ MVC Pattern – Modular and maintainable codebase. <br/> 
+         ✅ Asynchronous Processing – Optimized for speed with async/await. <br/> 
+        <Card.Title m="4"> Core Architecture: </Card.Title>
+         🔐 JWT Authentication – Secure login with access & refresh tokens.  <br/> 
+         🛡️ Rate Limiting & Helmet – Protection against DDoS & common attacks.  <br/> 
+         🔒 Role-Based Access Control (RBAC) – Admin, user, and guest permissions.  <br/> 
+         📝 Input Validation – Sanitization with Joi or Zod to prevent injection attacks.  <br/> 
+        <Card.Title m="4"> DevOps & Performance: </Card.Title>
+        🚀 Dockerized Deployment – Easy containerization for scalability. <br/> 
+        📊 Logging (Winston/Morgan) – Debugging and activity monitoring. <br/> 
+        ⚙️ Environment Management – .env for secure configuration.<br/> 
+        🔍 API Documentation (Swagger/Postman) – Clear, auto-generated docs.<br/> 
+        
+         </Card.Description>
+        <HStack mt="4">
+          <Badge>Hot</Badge>
+          <Badge>Caffeine</Badge>
+        </HStack>
+      </Card.Body>
+      <Card.Footer>
+        <Button>Buy Latte</Button>
+      </Card.Footer>
+    </Box>
+  </Card.Root>
+
+      </Box>
+    </Flex>
     </Box>
   );
 };

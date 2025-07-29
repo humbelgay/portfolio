@@ -1,11 +1,16 @@
 import { Box, Card, Button, Flex, Image, Text, VStack, HStack, IconButton } from '@chakra-ui/react';
 import { useState, useMemo } from "react";
+import { Link } from 'react-router-dom';
 import { useColorMode, useColorModeValue } from "@/components/ui/color-mode";
 import { useBreakpointValue } from "@chakra-ui/react";
 import speedTest from '@/assets/speedType.jpg'
+import { BrowserRouter } from 'react-router-dom';
 import pac from '@/assets/IMG_0533.jpg'
 import movie from '@/assets/movie.jpg'
 import { motion } from "framer-motion";
+// import { navigate } from "react-router-dom";
+import Projects from './projects';
+
 
 const layers = [
   "doodle1",
@@ -32,16 +37,15 @@ export default function Home() {
   }, [colorMode]);
 
   return (
-    <VStack spacing={0}> {/* Remove spacing between sections on mobile */}
+    <VStack > {/* Remove spacing between sections on mobile */}
       <Box
         w="100%"
         h={{ base: "35vh", md: "50vh" }} // Explicitly set 50vh for both mobile and desktop
         overflow="hidden"
-            color={textColor}
 
         // pt={20}
         position="relative"
-        m={{ base: 0, md: 0 }} // Remove margin on mobile, keep on desktop
+        m={{ base: 0, md: 12 }} // Remove margin on mobile, keep on desktop
         // p={{ base: 0, md: 10 }} // Remove margin on mobile, keep on desktop
         boxSizing={'border-box'}
       >
@@ -51,7 +55,6 @@ export default function Home() {
             position="absolute"
             top={0}
             left={0}
-            color={textColor}
             w="100%"
             h="100%"
             zIndex={layer.zIndex}
@@ -101,7 +104,13 @@ const ProjectCard = ({ project, align = "left" }) => {
           {project.title}
         </Text>
         <Text>{project.description}</Text>
-        <Button>See Project</Button>
+        <Button
+          as={Link}
+          
+          to="/projects"
+        >
+          View Project
+        </Button>
       </VStack>
     </MotionBox>
   )

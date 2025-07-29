@@ -50,10 +50,10 @@ function Contact() {
             Let's connect! Whether for project collaborations, creative
             opportunities, or just to say hi—I'd love to hear from you. Drop me
             a message below, and I'll get back to you soon. For quick updates,
-            check out my [social media links].
+            check out my [@nobody71] 
           </Text>
           <Text fontSize={{ base: "sm", md: "md" }} color="teal.500" mb={4}>
-            Status: Open for inquiries
+            Status: Open for freelance projects
           </Text>
 
           <Box mt={6}>
@@ -84,21 +84,27 @@ function Contact() {
           maxW="500px"
           w="100%"
         >
-          <VStack spacing={4} as="form">
-            <Text
-              as="h2"
-              fontSize={{ base: "2xl", md: "3xl" }}
-              fontWeight="bold"
-            >
-              Contact Me
-            </Text>
-            <Input placeholder="Your Name" />
-            <Input placeholder="Your Email" type="email" />
-            <Textarea placeholder="Your Message" rows={6} />
-            <Button colorScheme="teal" type="submit" w="full">
-              Send Message
-            </Button>
-          </VStack>
+       <VStack spacing={4} as="form" onSubmit={(e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const message = e.target.message.value;
+    window.location.href = `mailto:hafizadem71@gmail.com?subject=Message from ${name}&body=${encodeURIComponent(message)}\n\nFrom: ${name} (${email})`;
+}}>
+    <Text as="h2" fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold">
+        Contact Me
+    </Text>
+    <Input name="name" placeholder="Your Name" required />
+    <Input name="email" placeholder="Your Email" type="email" required />
+    <Textarea name="message" placeholder="Your Message" rows={6} required />
+    <Button 
+        type="submit" 
+        colorScheme="teal" 
+        w="full"
+    >
+        Send Message
+    </Button>
+</VStack>
           <Text mt={6} fontSize="sm" color="gray.500" textAlign="center">
             Or email us at{" "}
             <Link href="mailto:contact@example.com" color="teal.500">

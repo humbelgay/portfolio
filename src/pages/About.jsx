@@ -30,11 +30,11 @@ const About = () => {
 
       <Stack
       direction={{ base: "column", lg: "row" }}
-      spacing={{ base: 6, md: 10 }}
+      spacing={{ base: 6, md: 12 }}
       align="center"
       justify="space-between"  // Changed to space-between for equal distribution
-      mb={{ base: 12, md: 20 }}
-      px={{ base: 4, md: 0 }}
+      mb={{ base: 12, md: 10 }}
+      px={{ base: 2, md: 0 }}
       w="100%"
       maxW="1400px"  // Added max width for larger screens
       mx="auto"  // Center the stack
@@ -73,7 +73,7 @@ const About = () => {
     >
       <CardHeader pb={4}>
         <Heading 
-          size={{ base: "lg", md: "xl" }}
+          size={{ base: "lg", md: "x1" }}
           textAlign={{ base: "center", lg: "left" }}
           lineHeight="shorter"
         >
@@ -82,7 +82,7 @@ const About = () => {
       </CardHeader>
       <CardBody>
         <Text 
-          fontSize={{ base: "md", md: "lg" }}
+          fontSize={{ base: "md", md:'lg' }}
           lineHeight={{ base: "tall", md: "1.6" }}  // Improved line height
           textAlign={{ base: "left", md: "left" }}
         >
@@ -95,7 +95,7 @@ const About = () => {
           </Box>
           
            
-          <VStack  align="flex-start" spacing={2} pl={2}>
+          <VStack  align="flex-start" spacing={2} pl={.5}>
             <Box display="flex">
               <Box as="span" mr={2}>✔</Box>
               <Box>Full-Stack Development: Expert in MERN stack (MongoDB, Express.js, React, Node.js) for robust, scalable web apps.</Box>
