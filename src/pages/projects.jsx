@@ -16,7 +16,7 @@ export const Projects = () => {
 
 
   return (
-    <Box w="100%" px={{ base: 4, md: 10 }} mx="auto" bg={bgColor}>
+    <Box w="100%" px={{ base: 4, md: 12 }} mx="auto" >
          <Text
               as="h1"
               fontSize={{ base: "3xl", md: "5xl" }}
@@ -36,9 +36,9 @@ export const Projects = () => {
         Here are some of the things I've been working on.
       </Text>
       <Separator size={"lg"} color={'orange'}  mb={20}/>
-     <Flex   direction={isMobile ? "column" : "row"} w="100%" minH="100vh" bg={bgColor} p={4} gap={6}>
+     <Flex   direction={isMobile ? "column" : "row"} w="100%" minH="100vh"  p={4} gap={16}>
       
-      <Box flex="1"  borderRadius="lg" bg={useColorModeValue("white", "gray.800")} boxShadow="md" alignItems={"center"} display="flex" flexDirection="column">
+      <Box flex="1"  borderRadius="lg" boxShadow="md" alignItems={"center"} display="flex" flexDirection="column">
        
         <Card.Root color={textColor}    flexDirection="column" overflow="hidden" maxW="full" bg="transparent">
           <Image
@@ -105,7 +105,7 @@ export const Projects = () => {
        
       
       </Box>
-      <Box flex="1" p={0} borderRadius="lg" bg={useColorModeValue("white", "gray.800")} boxShadow="md" alignItems={"center"} display="flex" flexDirection="column">
+      <Box flex="1" p={0} borderRadius="lg"  boxShadow="md" alignItems={"center"} display="flex" flexDirection="column">
       
            <Card.Root flexDirection="column" overflow="hidden" maxW="full" bg="transparent">
           <Image
@@ -203,6 +203,7 @@ export const Projects = () => {
   </Card.Root>
 
       </Box>
+      
     </Flex>
     </Box>
   );

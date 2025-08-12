@@ -24,12 +24,12 @@ const items = [
 
 function Contact() {
   return (
-    <Box w="100%" px={{ base: 4, md: 10 }} mx="auto">
+    <Box w="100%" px={{ base: 4, md: 2 }} mx="auto">
       <Text
         as="h1"
         fontSize={{ base: "3xl", md: "5xl" }}
         fontWeight="bold"
-        mb={8}
+        mb={20}
         textAlign="center"
       >
         Contact
@@ -39,7 +39,7 @@ function Contact() {
         direction={{ base: "column", md: "row" }}
         align="flex-start"
         justify="center"
-        gap={10}
+        gap={20}
       >
         {/* Left Side */}
         <Box maxW="500px" flex="1">

@@ -119,7 +119,7 @@ const About = () => {
   </Box>
 </Stack>
 
-      <SimpleGrid  columns={{ base: 1, md: 2 }} spacing={{ base: 10, md: 20 }}>
+      <SimpleGrid  columns={{ base: 1, md: 2 }} spacing={{ base: 10, md: 20 }} alignContent={'center'} height="600px">
         {/* Skills */}
         <Box>
           <Text as="h2" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" mb={6} textAlign="center">
